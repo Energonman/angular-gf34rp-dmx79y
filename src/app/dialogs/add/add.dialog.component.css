@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 750px;
+}
+
+.container > * {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  padding-top: 22px;
+}
+
+.mat-form-field {
+  font-size: 22px;
+  flex-grow: 1;
+}
+.example-margin {
+  margin: 0 30px;
+  
+}
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}

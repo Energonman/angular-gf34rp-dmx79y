@@ -1,0 +1,104 @@
+<div class="container">
+  <h3 mat-dialog-title>Add new Issue</h3>
+
+  <form class="mat-dialog-content" (ngSubmit)="submit" #formControl="ngForm">
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #input class="form-control" placeholder="Memeber Ref ID" [(ngModel)]="data.id" name="Memeber Ref ID" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Name" [(ngModel)]="data.url" name="url">
+      </mat-form-field>
+    </div>
+    
+    <!--Textarea for demo purposes-->
+    <div class="form">
+      <mat-form-field color="accent">
+        <textarea matInput #input class="form-control" placeholder="Address" [(ngModel)]="data.title" name="Address Line 1" required ></textarea>
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    </div>
+
+
+    <!--Contains mat-hint for characters count and has maxLengt set-->
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput #inputstate class="form-control" placeholder="Marital Status" [(ngModel)]="data.state" name="state" maxlength="10" required >
+        <mat-error *ngIf="formControl.invalid">{{getErrorMessage()}}</mat-error>
+        <mat-hint align="end">{{inputstate.value?.length || 0}}/10</mat-hint>
+      </mat-form-field>
+    </div>
+
+  
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Employment Start Date" [(ngModel)]="data.created_at" name="created_at">
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="Joined Scheme" [(ngModel)]="data.updated_at" name="updated_at">
+      </mat-form-field>
+    </div>
+    <!--Contains mat-checkbox selector for leavers-->
+    <div class="form">
+      <mat-checkbox unchecked="true" [formControl]="hideRequiredControl" >This memeber is in the scheme?</mat-checkbox>
+    </div>
+    <!--Contains mat-hint for characters count and has maxLengt set-->
+    <mat-accordion class="example-section" [hidden]="hideRequiredControl.value" >
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <div>
+            <mat-panel-title>
+              Leaver data
+            </mat-panel-title>
+          </div>
+        </mat-expansion-panel-header>
+    
+        <mat-form-field>
+          <mat-label>First name</mat-label>
+          <input matInput>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Date</mat-label>
+          <input matInput type="number" min="1">
+        </mat-form-field> 
+
+        <mat-form-field > 
+          <mat-select [(value)]="selected">
+            <mat-option>None</mat-option>
+            <mat-option value="option1">Maternity</mat-option>
+            <mat-option value="option2">leaving company</mat-option>
+            <mat-option value="option3">Sick Leave</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-expansion-panel>
+      
+     </mat-accordion>
+     <!--Contains mat-extension logic 
+    <mat-expansion-panel [hidden]="hideRequiredControl.value" (opened)="panelOpenState = true" (closed)="panelOpenState = false" >
+         <mat-expansion-panel-header>
+        <mat-panel-title>
+          Type of Leaver
+        </mat-panel-title>
+        <mat-panel-description>
+          Currently I am {{panelOpenState ? 'open' : 'closed'}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p>I'm visible because I am open</p>
+    </mat-expansion-panel>-->
+
+    <div mat-dialog-actions>
+      <button mat-button [type]="submit" [disabled]="!formControl.valid" [mat-dialog-close]="1" (click)="confirmAdd()">Save</button>
+      <button mat-button (click)="onNoClick()" tabindex="-1">Cancel</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,72 @@
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 10px;
+  width: 100%;
+}
+
+.app-data-table{
+  width: 800px;
+  margin: 20px auto;
+  scroll-behavior: auto;
+  outline-offset: inherit;
+  overflow-x: auto;
+  height: 800px;
+}
+.mat-table{
+  position: sticky;
+  overflow-x: auto;
+  scroll-margin: initial;
+  box-shadow: saddlebrown;
+}
+.mat-column-select{
+  overflow: initial;
+  
+}
+
+.paginator{
+  width: 800px;
+  color: blue;
+}
+
+.mat-header-cell{
+  background-color: rgb(203, 200, 240);
+  height: 40px;
+  
+  position: sticky;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-width: 750px;
+}
+
+
+.container > * {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  padding-top: 22px;
+}
+
+.mat-form-field {
+  font-size: 18px;
+  flex-grow: 1;
+}
+.example-margin {
+  margin: 0 30px;
+  
+}
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+
+
+

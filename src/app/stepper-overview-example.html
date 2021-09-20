@@ -1,0 +1,55 @@
+<img mat-card-image src="https://usercontent.one/wp/www.expathomecover.com/wp-content/uploads/2019/10/zurich-4.png" alt="Photo of a Shiba Inu">
+<mat-card>
+  
+    <span class="left">Golf Buddies</span>
+    <span class="right">Scheme No. 8847488</span>
+    <div></div><p>
+      
+    </p>
+    <div></div><p></p>
+
+
+
+</mat-card>
+
+<mat-horizontal-stepper [linear]="isLinear" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Memeber details</ng-template>
+      <div>
+        <table-filtering-example></table-filtering-example>
+      </div>
+
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup">
+    <form [formGroup]="secondFormGroup">
+      <ng-template matStepLabel>Declaration</ng-template>
+      <mat-form-field>
+        <mat-label>Address</mat-label>
+        <input matInput formControlName="secondCtrl" placeholder="Ex. 1 Main St, New York, NY"
+               required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Finished</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
+
+
+<!-- Copyright 2019 Google LLC. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->
